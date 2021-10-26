@@ -1,8 +1,8 @@
 name: TechTrends - Package with Docker
 
 on: [push]
-    branches:
-      - 'main'
+  branches:
+    - 'main'
 
 jobs:
   docker:
