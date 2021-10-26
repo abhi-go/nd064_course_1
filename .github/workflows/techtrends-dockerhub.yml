@@ -1,15 +1,20 @@
+##  Named of the workflow.
 name: TechTrends - Package with Docker
-
+## Set the trigger policy.
+## In this case, the workflow is execute on a `push` event,
+## or when a new commit is pushed to the repository
 on: [push]
-  branches:
-    - 'main'
-
+## List the steps to be executed by the workflow
 jobs:
+  ## Set the name of the job
   docker:
+    ## Configure the operating system the workflow should run on.
+    ## In this case, the job on Ubuntu
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+    ## Define a sequence of steps to be executed
     steps:
       -
         name: Set up QEMU
