@@ -38,8 +38,8 @@ jobs:
           context: project
           platforms: linux/amd64
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
+          tags: techtrends:latest
       -
         name: Inspect
         run: |
-          docker image inspect ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
+          docker image inspect techtrends:latest
