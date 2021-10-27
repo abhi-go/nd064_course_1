@@ -42,4 +42,4 @@ jobs:
       -
         name: Inspect
         run: |
-          docker image inspect techtrends:latest
+          docker image inspect ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
