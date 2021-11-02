@@ -12,7 +12,7 @@ RUN python init_db.py
 COPY . /app
 
 # expose the port for flask to listen on
-EXPOSE 7111
+EXPOSE 3111
 
 # RUN the app
 ENTRYPOINT [ "python" ]
