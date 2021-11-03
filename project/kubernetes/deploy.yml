@@ -1,0 +1,61 @@
+## Set the API endpoint used to create the Deployment resource.
+apiVersion: apps/v1
+## Define the type of the resource.
+kind: Deployment
+## Object identifiable, such as its name, namespace, and labels.
+metadata:
+  annotations:
+  labels:
+    app: techtrends
+  name: techtrends
+  namespace: sandbox
+## Desired configuration for the Deployment resource.
+spec:
+  ## number of replicas.
+  replicas: 1
+  ## Identify the pods managed by this Deployment using the following selectors.
+  selector:
+    matchLabels:
+      app: techtrends
+  ## Set the configuration for the pods.
+  template:
+    ## Define the identifiable metadata for the pods.
+    metadata:
+      labels:
+        app: techtrends
+    ## Define the desired state of the pod configuration.
+    spec:
+      containers:
+        ## the image to be executed inside the container and image pull policy
+        ## only pull the image if it's not available on the current host.
+      - image: abgo/techtrends:latest
+        # imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
+        name: techtrends
+        ## Expose the port the container is listening on.
+        ports:
+        - containerPort: 3111
+          protocol: TCP
+        ## Define the rules for the liveness probes.
+        livenessProbe:
+           httpGet:
+             path: /healthz
+             port: 3111
+        ## Define the rules for the readiness probes.
+        readinessProbe:
+           httpGet:
+             path: /healthz
+             port: 3111
+        ## Set the resource requests and limits for an application.
+        resources:
+        ## The resource requests guarantees that the desired amount 
+        ## CPU and memory is allocated for a pod. 
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+        ## The resource limits ensure that the application is not consuming 
+        ## more than the specified CPU and memory values. In this example, 
+        ## the pod will not surpass 128 Mebibytes and 500 miliCPUs.
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
