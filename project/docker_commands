@@ -5,7 +5,10 @@ sudo docker build -t techtrends .
 
 ## Docker commands used to run the application
 # insert the docker run command
-sudo docker run -d -p7111:7111 --name tt_udacity techtrends
+sudo docker run -d -p7111:3111 --name tt_udacity techtrends
+# After uploading this to dockerhub, removed the local container image and started using the following command
+# sudo docker run -d -p7111:3111 --name tt_udacity abgo/techtrends:latest
+
 
 ## Docker commands used to get the application logs
 # insert the docker logs command
