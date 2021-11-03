@@ -1,0 +1,13 @@
+metadata:
+  labels:
+    app: {{ .Values.application.name }}
+  name: {{ .Values.application.name }}
+  namespace: sandbox
+spec:
+  ports:
+  - port: {{ .Values.service.port }}
+    protocol: {{ .Values.service.protocol }}
+    targetPort: {{ .Values.containerPort }}
+  selector:
+    app: {{ .Values.application.name }}
+  type: ClusterIP

@@ -1,0 +1,9 @@
+apiVersion: v1
+name: techtrends
+description: Install the techtrends app
+keywords:
+- techtrends
+version: 1.0.0
+maintainers:
+- name: abgo
+  email: ag@ag.info
