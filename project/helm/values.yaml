@@ -1,5 +1,6 @@
-namespace:
-  name: sandbox
+# deliberately commenting this out so that applications have to specify their own
+# namespace:
+#  name: sandbox
 
 application:
   name: techtrends
