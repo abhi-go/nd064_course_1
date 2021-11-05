@@ -7,7 +7,7 @@ application:
 image:
   repository: abgo/techtrends 
   tag: latest
-  pullPolicy: ifNotPresent
+  pullPolicy: IfNotPresent
 
 replicaCount: 1
 
