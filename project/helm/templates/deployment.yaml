@@ -4,9 +4,9 @@ metadata:
   labels:
     app: {{ .Values.application.name }}
   name: {{ .Values.application.name }}
-  namespace: {{ .Values.namespace.name }} 
+  namespace: {{ .Values.namespace.name }}
 spec:
-  replicas: {{ .Values.replicaCount }} 
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.application.name }}
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }} 
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: {{ .Values.application.name }}
         ## Expose the port the container is listening on.
         ports:
@@ -31,11 +31,11 @@ spec:
         livenessProbe:
            httpGet:
              path: {{ .Values.livenessProbe.path }}
-             port: {{ .Values.service.targetPort }}
+             port: {{ .Values.livenessProbe.port }}
         readinessProbe:
            httpGet:
              path: {{ .Values.readinessProbe.path }}
-             port: {{ .Values.service.targetPort }}
+             port: {{ .Values.readinessProbe.port }}
         resources:
           requests:
             memory: {{ .Values.resources.requests.memory }}

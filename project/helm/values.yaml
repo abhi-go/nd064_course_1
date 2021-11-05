@@ -4,9 +4,9 @@
 
 application:
   name: techtrends
- 
+
 image:
-  repository: abgo/techtrends 
+  repository: abgo/techtrends
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -19,14 +19,16 @@ resources:
   limits:
     memory: "128Mi"
     cpu: "500m"
- 
+
 containerPort: 3111
 
 livenessProbe:
   path: /healthz
+  port: 3111
 
 readinessProbe:
   path: /healthz
+  port: 3111
 
 service:
   port: 4111
