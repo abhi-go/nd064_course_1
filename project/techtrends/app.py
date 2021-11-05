@@ -37,14 +37,21 @@ dictConfig({
     'formatters': {'default': {
         'format': '[%(asctime)s] %(levelname)s: %(module)s: %(message)s',
     }},
-    # 'handlers': {'wsgi': {
-    #     'class': 'logging.StreamHandler',
-    #     'stream': 'ext://flask.logging.wsgi_errors_stream',
-    #     'formatter': 'default'
-    # }},
+    'handlers': {
+          'stdout': {
+              'class': 'logging.StreamHandler',
+              'stream': 'ext://sys.stdout',
+              'formatter': 'default'
+          },
+          'stderr': {
+              'class': 'logging.StreamHandler',
+              'stream': 'ext://sys.stderr',
+              'formatter': 'default'
+          },
+     },
     'root': {
         'level': 'DEBUG',
-        # 'handlers': ['wsgi']
+        'handlers': ['stdout', 'stderr']
     }
 })
 
